@@ -1,30 +1,26 @@
 import React from "react";
-import logo from "../images/Logo.svg";
+import { Link } from "react-router-dom";
+import bannerImg from "../images/restauranfood.jpg";
 
 const Header = () => {
   return (
-    <header>
-      <img src={logo} alt="logo" />
-      <nav>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/">About</a>
-        </li>
-        <li>
-          <a href="/">Menu</a>
-        </li>
-        <li>
-          <a href="/">Reservations</a>
-        </li>
-        <li>
-          <a href="/">Order Online</a>
-        </li>
-        <li>
-          <a href="/">Login</a>
-        </li>
-      </nav>
+    <header className="header">
+      <section>
+        <div className="banner">
+          <h2>Little Lemon</h2>
+          <h3>Chicago</h3>
+          <p>
+            We are a family owned Mediterraneran restaurant, focused on
+            traditional recipes servred with a modern twist.
+          </p>
+          <Link to="/booking">
+            <button aria-label="On Click">Reserve Table</button>
+          </Link>
+        </div>
+        <div className="banner-img">
+          <img src={bannerImg} alt="" />
+        </div>
+      </section>
     </header>
   );
 };

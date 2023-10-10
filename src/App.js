@@ -1,10 +1,15 @@
-import { Fragment } from "react";
-import Header from "./components/Header";
+import React, { Fragment } from "react";
+import "./App.css";
+import Nav from "./components/Nav";
+import Main from "./components/Main";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <Fragment>
-      <Header />
+      <Nav />
+      <Main />
+      <Footer />
     </Fragment>
   );
 }
