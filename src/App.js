@@ -1,17 +1,15 @@
-import React, { Fragment } from "react";
-import "./App.css";
-import Nav from "./components/Nav";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
+import { Route, Routes } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import ReservationPage from "./pages/ReservationPage";
+import "./styles.css";
 
-function App() {
+export default function App() {
   return (
-    <Fragment>
-      <Nav />
-      <Main />
-      <Footer />
-    </Fragment>
+    <>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/reservation" element={<ReservationPage />} />
+      </Routes>
+    </>
   );
 }
-
-export default App;
