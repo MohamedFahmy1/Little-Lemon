@@ -22,14 +22,14 @@ const Footer = () => {
               <h5>CONTACT US</h5>
               <ul>
                 <li>Tel: 123456789</li>
-                <li>Email: johndoe@littlelemon.com</li>
+                <li>Email: willsmith@littlelemon.com</li>
               </ul>
             </div>
 
             <div className="locations">
               <h5>LOCATIONS</h5>
               <ul>
-                <li>100 Blv, Boston MA</li>
+                <li>132 London, England</li>
               </ul>
             </div>
           </div>
