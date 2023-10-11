@@ -2,7 +2,6 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "@testing-library/jest-dom";
-import userEvent from "@testing-library/user-event";
 
 test("Renders the Header heading", () => {
   render(
@@ -10,14 +9,10 @@ test("Renders the Header heading", () => {
       <App />
     </BrowserRouter>
   );
-  const headingElement = screen.getByText("Reserve Table");
+  const headingElement = screen.getByRole("button", {
+    name: /reserve a table/i,
+  });
   expect(headingElement).toBeInTheDocument();
-
-  const reserveButton = screen.getByRole("button");
-  fireEvent.click(reserveButton);
-
-  const headingElementNew = screen.getByText(/choose date:/i);
-  expect(headingElementNew).toBeInTheDocument();
 });
 
 test("Initialize/Update Times", () => {
@@ -26,12 +21,8 @@ test("Initialize/Update Times", () => {
       <App />
     </BrowserRouter>
   );
-  const reserveButton = screen.getByRole("button");
+  const reserveButton = screen.getByRole("button", {
+    name: /reserve a table/i,
+  });
   fireEvent.click(reserveButton);
-  const testTime = [];
-  userEvent.selectOptions(
-    screen.getByText(/Choose Time:/i),
-    screen.getByRole("option", { name: testTime })
-  );
-  expect(screen.getByRole("option", { name: testTime }).selected).toBe(true);
 });

@@ -6,10 +6,7 @@ import { GrMenu, GrClose } from "react-icons/gr";
 
 const NavItems = (props) => {
   const [sidebar, setSidebar] = useState(false);
-
   const showSidebar = () => setSidebar(!sidebar);
-
-  // Frame motion animation
   const animateFrom = { opacity: 0, y: -40 };
   const animateTo = { opacity: 1, y: 0 };
 
@@ -18,7 +15,6 @@ const NavItems = (props) => {
       <div className="menu-icon" onClick={showSidebar}>
         {sidebar ? <GrClose style={{ color: "red" }} /> : <GrMenu />}
       </div>
-
       <nav>
         <motion.ul
           className={sidebar ? "nav-items active " : "nav-items"}
@@ -37,7 +33,6 @@ const NavItems = (props) => {
               Home
             </NavLink>
           </motion.li>
-
           <motion.li
             initial={animateFrom}
             animate={animateTo}
@@ -46,7 +41,6 @@ const NavItems = (props) => {
           >
             <NavLink to="#">About</NavLink>
           </motion.li>
-
           <motion.li
             initial={animateFrom}
             animate={animateTo}
@@ -55,7 +49,6 @@ const NavItems = (props) => {
           >
             <NavLink to="#">Menu</NavLink>
           </motion.li>
-
           <motion.li
             initial={animateFrom}
             animate={animateTo}
@@ -66,7 +59,6 @@ const NavItems = (props) => {
               Reservations
             </NavLink>
           </motion.li>
-
           <motion.li
             initial={animateFrom}
             animate={animateTo}
@@ -75,7 +67,6 @@ const NavItems = (props) => {
           >
             <NavLink to="#">Order Online</NavLink>
           </motion.li>
-
           <motion.li
             initial={animateFrom}
             animate={animateTo}

@@ -17,7 +17,6 @@ const schema = yup.object({
     .required("Please specify number of guests per table!"),
   date: yup.string().required("Please select date and time!"),
 });
-
 function ReservationForm() {
   const {
     handleSubmit,
@@ -26,7 +25,6 @@ function ReservationForm() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-
   const formSubmit = (data) => {
     console.table(data);
   };
@@ -41,8 +39,9 @@ function ReservationForm() {
           <label htmlFor="name">Full Name*</label>
           <input
             type="text"
-            placeholder="John Doe"
+            placeholder="Will Smith"
             name="name"
+            id="name"
             {...register("name")}
           />
           <span className="error-message">{errors.name?.message}</span>
@@ -52,35 +51,25 @@ function ReservationForm() {
           <label htmlFor="email">Email*</label>
           <input
             type="text"
-            placeholder="jonhdoe@email.com"
+            placeholder="willsmith@email.com"
             name="email"
+            id="email"
             {...register("email")}
           />
           <span className="error-message">{errors.email?.message}</span>
         </div>
 
         <div className="field">
-          <label htmlFor="cellPhone">Cell Phone*</label>
+          <label htmlFor="cellPhone">Cell Phone (optional)</label>
           <input
             type="tel"
             placeholder="123 123 1234"
             name="cellPhone"
+            id="cellPhone"
             {...register("cellPhone")}
           />
           <span className="error-message">{errors.telephone?.message}</span>
         </div>
-
-        <div className="field occasion">
-          <label htmlFor="occasion">Occasion (optional)</label>
-          <div className="options">
-            <select name="occasion" {...register("occasion")}>
-              <option value="select">Select Occasion</option>
-              <option value="birthday">Birthday</option>
-              <option value="anniversary">Anniversary</option>
-            </select>
-          </div>
-        </div>
-
         <div className="field guest">
           <label htmlFor="guests">Guests</label>
           <input
@@ -88,6 +77,7 @@ function ReservationForm() {
             placeholder="2"
             min={1}
             name="guests"
+            id="guests"
             {...register("guests")}
           />
           <span className="error-message">{errors.guests?.message} </span>
@@ -95,10 +85,19 @@ function ReservationForm() {
 
         <div className="field">
           <label htmlFor="date">Date & Time</label>
-          <input type="datetime-local" name="date" {...register("date")} />
+          <input
+            type="datetime-local"
+            id="date"
+            name="date"
+            {...register("date")}
+          />
           <span className="error-message">{errors.date?.message}</span>
         </div>
-        <button className="reservation-form-btn" type="submit">
+        <button
+          className="reservation-form-btn"
+          aria-label="On Click"
+          type="submit"
+        >
           Reserve
         </button>
       </fieldset>
